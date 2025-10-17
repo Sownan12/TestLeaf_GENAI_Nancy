@@ -1,0 +1,59 @@
+Request:
+
+{
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+      "type": "text",
+      "text": "First Extract the text from the given image display it.Next convert the text in Uppercase letters."
+        },
+        {
+      "type": "image_url",
+      "image_url": {
+        "url":"https://wallup.net/wp-content/uploads/2018/09/30/911317-quotes-typography-text-quote-motivational-inspirational.jpg" }
+        }
+      ]
+    }
+    
+    
+  ],
+  "model": "meta-llama/llama-4-maverick-17b-128e-instruct"
+  
+}
+
+Response:
+
+{
+    "id": "chatcmpl-02a7bd05-5be6-4ccf-a825-0631a6f7cffa",
+    "object": "chat.completion",
+    "created": 1760684235,
+    "model": "meta-llama/llama-4-maverick-17b-128e-instruct",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "The text extracted from the image is:\n\n\"Try, try, try, and keep on trying is the rule that must be followed to become an expert in anything. - W. Clement Stone\"\n\nNow, let's convert the extracted text to uppercase letters:\n\n\"TRY, TRY, TRY, AND KEEP ON TRYING IS THE RULE THAT MUST BE FOLLOWED TO BECOME AN EXPERT IN ANYTHING. - W. CLEMENT STONE\""
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 3.882312015,
+        "prompt_tokens": 2353,
+        "prompt_time": 0.047339916,
+        "completion_tokens": 90,
+        "completion_time": 0.300994582,
+        "total_tokens": 2443,
+        "total_time": 0.348334498
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_d2c1f7e199",
+    "x_groq": {
+        "id": "req_01k7rfahddem8ratz0w54kwq7j"
+    },
+    "service_tier": "on_demand"
+}
