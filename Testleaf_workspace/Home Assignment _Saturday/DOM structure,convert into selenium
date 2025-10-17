@@ -1,0 +1,177 @@
+Take one of your office/retail application DOM structure,convert into selenium /playwright / cypress code
+Instruction :
+•	Generate ONLY a Selenium Java code.
+•	Use TestNG as the test runner.
+•	Add JavaDoc for methods & Classes.
+•	Use Selenium 2.30+ compatible imports.
+•	Use Meaningful  Method Names.
+•	Follow Locator strategies.
+	Use ID only when it is unique and do not have numbers in it.
+	Use Name only ID is not present and when it is unique.
+	Use XPATH preferably attribute based or text based.
+	NEVER use css.
+•	Use explicit waits instead of Thread.sleep().
+•	Validate both successful and unsuccessful login attempts.
+•	[MANDATORY] Generally only code and no other text
+•	USE the below DOM structure to GENERATE the code.
+
+
+Context:
+I am a senior automation developer. This project is for retail app. It is a booking app for hotels. 
+
+DOM STRUCTURE:
+
+<div data-testid="searchbox-layout-wide" class="b7ef425131 e9f1adff2b b935cde1f7 b59e36af6b"><div class="b769347817"><div class="e131f34780"><div class="a006cb595b fed761de90" data-testid="destination-container"><div class="b99b6ef58f a10a015434 d1e49ad95b ba31039024"><div class="b6f682f7ac"><div class="be34ebee1c"><div class="a7a8da5a1c b6f36b4360"><span class="fc70cba028 c2a70a5db2 bc7d708ceb" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50px"><path d="M2.75 12h18.5c.69 0 1.25.56 1.25 1.25V18l.75-.75H.75l.75.75v-4.75c0-.69.56-1.25 1.25-1.25m0-1.5A2.75 2.75 0 0 0 0 13.25V18c0 .414.336.75.75.75h22.5A.75.75 0 0 0 24 18v-4.75a2.75 2.75 0 0 0-2.75-2.75zM0 18v3a.75.75 0 0 0 1.5 0v-3A.75.75 0 0 0 0 18m22.5 0v3a.75.75 0 0 0 1.5 0v-3a.75.75 0 0 0-1.5 0m-.75-6.75V4.5a2.25 2.25 0 0 0-2.25-2.25h-15A2.25 2.25 0 0 0 2.25 4.5v6.75a.75.75 0 0 0 1.5 0V4.5a.75.75 0 0 1 .75-.75h15a.75.75 0 0 1 .75.75v6.75a.75.75 0 0 0 1.5 0m-13.25-3h7a.25.25 0 0 1 .25.25v2.75l.75-.75h-9l.75.75V8.5a.25.25 0 0 1 .25-.25m0-1.5A1.75 1.75 0 0 0 6.75 8.5v2.75c0 .414.336.75.75.75h9a.75.75 0 0 0 .75-.75V8.5a1.75 1.75 0 0 0-1.75-1.75z"></path></svg></span></div><input name="ss" class="b915b8dc0b" placeholder="Where are you going?" data-destination="1" autocomplete="off" aria-autocomplete="list" aria-controls="autocomplete-results" aria-haspopup="listbox" aria-label="Where are you going?" aria-expanded="false" role="combobox" id=":rh:" value=""><div class="dc22f7995a ffcf7fff3d"></div></div></div></div><div class="ada790228e"></div></div></div></div><div class="b769347817"><div class="ed9f289288"><button data-testid="searchbox-dates-container" type="button" class="de576f5064 dc15842869 e84058595b f1f96fdf10 d10abb4e59"><span class="be2db1c937 bcb41e7c40"><span class="fc70cba028 e1f1de0f5d c2a70a5db2 bc7d708ceb" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50px"><path d="M22.5 13.5v8.25a.75.75 0 0 1-.75.75H2.25a.75.75 0 0 1-.75-.75V5.25a.75.75 0 0 1 .75-.75h19.5a.75.75 0 0 1 .75.75zm1.5 0V5.25A2.25 2.25 0 0 0 21.75 3H2.25A2.25 2.25 0 0 0 0 5.25v16.5A2.25 2.25 0 0 0 2.25 24h19.5A2.25 2.25 0 0 0 24 21.75zm-23.25-3h22.5a.75.75 0 0 0 0-1.5H.75a.75.75 0 0 0 0 1.5M7.5 6V.75a.75.75 0 0 0-1.5 0V6a.75.75 0 0 0 1.5 0M18 6V.75a.75.75 0 0 0-1.5 0V6A.75.75 0 0 0 18 6M5.095 14.03a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06m.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5m-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06m.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5m5.845-3.97a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06m.53-1.28A1.125 1.125 0 1 0 12 15a1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5m-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06M12 18a1.125 1.125 0 1 0 0 2.25A1.125 1.125 0 0 0 12 18a.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5m5.845-3.97a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06m.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5m-.53 6.53a.75.75 0 1 0 1.06-1.06.75.75 0 0 0-1.06 1.06m.53-1.28a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25.75.75 0 0 0 0 1.5.375.375 0 1 1 0-.75.375.375 0 0 1 0 .75.75.75 0 0 0 0-1.5"></path></svg></span><span data-testid="date-display-field-start">Check-in date</span><span class="eca9157be5"> — </span><span data-testid="date-display-field-end">Check-out date</span></span></button></div></div><div class="b769347817"><div class="ab2c86b370" tabindex="-1"><button data-testid="occupancy-config" aria-controls=":ri:" aria-expanded="false" aria-label="Number of travellers and rooms. Currently selected: 2 adults · 0 children · 1 room" type="button" class="de576f5064 dc15842869 e84058595b b3d1de1c28"><span class="be2db1c937 bcb41e7c40"><span data-testid="occupancy-config-icon" class="fc70cba028 d62168fff1 c2a70a5db2 bc7d708ceb" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50px"><path d="M16.5 6a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0M18 6A6 6 0 1 0 6 6a6 6 0 0 0 12 0M3 23.25a9 9 0 1 1 18 0 .75.75 0 0 0 1.5 0c0-5.799-4.701-10.5-10.5-10.5S1.5 17.451 1.5 23.25a.75.75 0 0 0 1.5 0"></path></svg></span>2 adults · 0 children · 1 room</span><span data-testid="searchbox-form-button-icon" class="fc70cba028 ac148ea56b eff0666279 ca6ff50764" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="50px"><path d="M19.268 8.913a.9.9 0 0 1-.266.642l-6.057 6.057A1.3 1.3 0 0 1 12 16c-.35.008-.69-.123-.945-.364L4.998 9.58a.91.91 0 0 1 0-1.284.897.897 0 0 1 1.284 0L12 13.99l5.718-5.718a.897.897 0 0 1 1.284 0 .88.88 0 0 1 .266.642"></path></svg></span></button></div></div><div class="b769347817 a7e79c28d6"><button type="submit" class="de576f5064 b46cd7aad7 ced67027e5 dda427e6b5 e4f9ca4b0c ca8e0b9533 cfd71fb584 a9d40b8d51"><span class="ca2ca5203b">Search</span></button></div></div>
+
+
+Example:
+Use the below example to generate the java code.
+public class Loops {
+
+	public static void main(String[] args) {
+		
+		boolean imageLoaded = false;
+		do {
+			// check if the image is loaded => imageLoaded
+		}while(imageLoaded);
+		
+		boolean raining = true;
+		
+		// Minimum -> 0 iteration
+		while(!raining) {
+			System.out.println("I am running");
+			raining = true;
+		} 
+		
+		// Minimum -> 1 iteration
+		do {
+			System.out.println();
+		}while(!raining);
+		}
+
+}
+
+Persona
+
+- Act as Senior Front end developer to generate the code
+
+Output Format
+
+- Follow the coding standards as per tech stack given
+
+
+
+Output:
+package com.retailapp.tests;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+import java.time.Duration;
+
+/**
+ * This class automates validation of search functionality on the Retail Hotel Booking application.
+ * It covers both successful and unsuccessful search attempts using Selenium WebDriver with TestNG.
+ * 
+ * Author: Senior Automation Developer
+ */
+public class HotelSearchTest {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+    private final String BASE_URL = "https://example-retailhotelapp.com";
+
+    /**
+     * Initializes WebDriver and opens the Retail Hotel Booking homepage.
+     */
+    @BeforeClass
+    public void setUp() {
+        System.setProperty("webdriver.chrome.driver", "path/to/chromedriver");
+        driver = new ChromeDriver();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        driver.get(BASE_URL);
+    }
+
+    /**
+     * Performs a successful hotel search by entering a valid destination
+     * and validating the navigation to the results page.
+     */
+    @Test(priority = 1, description = "Validate successful hotel search with valid destination")
+    public void testSuccessfulHotelSearch() {
+        WebElement destinationInput = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='ss' and @placeholder='Where are you going?']"))
+        );
+        destinationInput.clear();
+        destinationInput.sendKeys("New York");
+
+        WebElement datesButton = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//button[@data-testid='searchbox-dates-container']"))
+        );
+        datesButton.click();
+
+        WebElement checkInDate = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//span[contains(text(),'Check-in date')]"))
+        );
+        checkInDate.click();
+
+        WebElement occupancyButton = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//button[@data-testid='occupancy-config']"))
+        );
+        occupancyButton.click();
+
+        WebElement searchButton = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']//span[text()='Search']"))
+        );
+        searchButton.click();
+
+        WebElement searchResultsHeader = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(),'properties found')]"))
+        );
+        Assert.assertTrue(searchResultsHeader.isDisplayed(), "Search results not displayed for valid destination!");
+    }
+
+    /**
+     * Validates unsuccessful hotel search when no destination is entered.
+     * It checks that an error message or prompt appears as expected.
+     */
+    @Test(priority = 2, description = "Validate unsuccessful hotel search with empty destination field")
+    public void testUnsuccessfulHotelSearch() {
+        driver.get(BASE_URL);
+
+        WebElement destinationInput = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@name='ss' and @placeholder='Where are you going?']"))
+        );
+        destinationInput.clear();
+
+        WebElement searchButton = wait.until(
+                ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']//span[text()='Search']"))
+        );
+        searchButton.click();
+
+        WebElement errorPopup = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[contains(text(),'Please enter a destination')]"))
+        );
+        Assert.assertTrue(errorPopup.isDisplayed(), "Error message not displayed for empty destination search!");
+    }
+
+    /**
+     * Closes the browser instance and quits WebDriver after tests are complete.
+     */
+    @AfterClass
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+}
+
+
+
