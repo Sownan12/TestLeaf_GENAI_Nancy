@@ -1,0 +1,184 @@
+Request:
+
+{
+    "messages": [
+        {
+            "role": "user",
+            "content": "Create a simple java selenium code to verify the login functionality of redbus.in.Use TestNG as the test runner.Add JavaDoc for methods & Classes.Use Selenium 2.30+ compatible imports.Use Meaningful  Method Names.Use explicit waits instead of Thread.sleep().Validate both successful and unsuccessful login attempts.only code and no other text"
+        },
+        {
+            "role": "system",
+            "content": "As an AI Assistant give me a Proper test script as a senior automation tester"
+        },
+        {
+            "role": "assistant",
+            "content": "Need proper formated test script. Give test case number, give scenarios details or objective of the test case. Give test case number. Also mention what type of test case . example- API, or DB or load etc."
+        }
+    ],
+    "model": "llama-3.1-8b-instant",
+    "max_completion_tokens": 1000
+}
+    
+
+Response:
+
+{
+    "id": "chatcmpl-0e14b8f7-aa0b-4be1-b541-89eeecf68869",
+    "object": "chat.completion",
+    "created": 1760717591,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": " \n\n```java\npackage com.redbus.testcases;\n\nimport org.openqa.selenium.By;\nimport org.openqa.selenium.WebDriver;\nimport org.openqa.selenium.WebElement;\nimport org.openqa.selenium.chrome.ChromeDriver;\nimport org.openqa.selenium.support.ui.ExpectedConditions;\nimport org.openqa.selenium.support.ui.WebDriverWait;\nimport org.testng.annotations.Test;\n\nimport io.github.bonigarcia.wdm.WebDriverManager;\n\npublic class Redbus_Login_Functionality {\n\t\n\t@Test(description = \"Verify Redbus Login with Valid Credentials\")\n\tpublic void TC_Redbus_Login_Valid_Credentials() {\n\t\tredbus_Login_Valid_Credentials();\n\t\tvalidate_Login_Redbus();\n\t}\n\n\t@Test(description = \"Verify Redbus Login with Invalid Credentials\")\n\tpublic void TC_Redbus_Login_Invalid_Credentials() {\n\t\tredbus_Login_Invalid_Credentials();\n\t\tvalidate_Login_Msg_Redbus();\n\t}\n\n\tprivate void redbus_Login_Valid_Credentials() {\n\t\tWebDriverManager.chromedriver().setup();\n\t\tWebDriver driver = new ChromeDriver();\n\t\tdriver.manage().window().maximize();\n\t\tdriver.get(\"https://www.redbus.in\");\n\t\t\n\t\t// Enter Valid Credentials\n\t\tdriver.findElement(By.xpath(\"//input[@id='txtUserName']\")).sendKeys(\"test@gmail.com\");\n\t\tdriver.findElement(By.xpath(\"//input[@id='txtPassword']\")).sendKeys(\"testpassword\");\n\t\tdriver.findElement(By.xpath(\"//div[@class='loginBtn']//button\")).click();\n\t}\n\t\n\tprivate void redbus_Login_Invalid_Credentials() {\n\t\tWebDriverManager.chromedriver().setup();\n\t\tWebDriver driver = new ChromeDriver();\n\t\tdriver.manage().window().maximize();\n\t\tdriver.get(\"https://www.redbus.in\");\n\t\t\n\t\t// Enter InValid Credentials\n\t\tdriver.findElement(By.xpath(\"//input[@id='txtUserName']\")).sendKeys(\"test@gmail.com\");\n\t\tdriver.findElement(By.xpath(\"//input[@id='txtPassword']\")).sendKeys(\"wrongpassword\");\n\t\tdriver.findElement(By.xpath(\"//div[@class='loginBtn']//button\")).click();\n\t}\n\t\n\tprivate void validate_Login_Redbus() {\n\t\tWebDriverWait wait = new WebDriverWait(driver, 10);\n\t\twait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(\"//div[@class='loginHeader']\")));\n\t\tString expectedHeaderTitle = \"Hi\";\n\t\tString actualHeaderTitle = driver.findElement(By.xpath(\"//div[@class='loginHeader']\")).getText();\n\t\tSystem.out.println(\"Expected Header Text: \" + expectedHeaderTitle);\n\t\tSystem.out.println(\"Actual Header Text: \" + actualHeaderTitle);\n\t\tif (expectedHeaderTitle.equals(actualHeaderTitle)) {\n\t\t\tSystem.out.println(\"Login Successful - Valid Credentials\");\n\t\t} else {\n\t\t\tSystem.out.println(\"Login Failed - Valid Credentials\");\n\t\t}\n\t}\n\t\n\tprivate void validate_Login_Msg_Redbus() {\n\t\tWebDriverWait wait = new WebDriverWait(driver, 10);\n\t\twait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(\"//div[@id='login-error']\")));\n\t\tString expectedErrMsg = \"Email or password is incorrect.\";\n\t\tString actualErrMsg = driver.findElement(By.xpath(\"//div[@id='login-error']\")).getText();\n\t\tSystem.out.println(\"Expected Error Message: \" + expectedErrMsg);\n\t\tSystem.out.println(\"Actual Error Message: \" + actualErrMsg);\n\t\tif (expectedErrMsg.equals(actualErrMsg)) {\n\t\t\tSystem.out.println(\"Login Failed - InValid Credentials\");\n\t\t} else {\n\t\t\tSystem.out.println(\"Invalid Error Message - InValid Credentials\");\n\t\t}\n\t}\n}\n\n```\n\n**TestNG.xml**\n\n```xml\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE suite SYSTEM \"http://testng.org/testng-1.0.dtd\">\n<suite name=\"Redbus_Login_Functionality\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n\txsi:noNamespaceSchemaLocation=\"http://testng.org/testng.xsd\">\n\n\t<suite-files>\n\t    <file-set path=\"./src/com/redbus/fixtures/\"/>\n\t</suite-files>\n\t\n\t<test name=\"Redbus_Login_Functionality\">\n    \t<classes>\n        \t<class name=\"com.redbus.testcases.Redbus_Login_Functionality\"/>\n    \t</classes>\n\t</test>\n\t\n</suite>\n```"
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.05411419,
+        "prompt_tokens": 160,
+        "prompt_time": 0.01120841,
+        "completion_tokens": 857,
+        "completion_time": 1.317160233,
+        "total_tokens": 1017,
+        "total_time": 1.3283686430000001
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_e32974efee",
+    "x_groq": {
+        "id": "req_01k7sf4kgce1eskvzv1pk77f6s"
+    },
+    "service_tier": "on_demand"
+}
+
+
+
+Beautified Code from Content:
+
+package com.redbus.testcases;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import java.time.Duration;
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+/**
+ * @author
+ * Test class for verifying Redbus login functionality.
+ * This class checks both valid and invalid login scenarios using Selenium and TestNG.
+ */
+public class Redbus_Login_Functionality {
+
+    private WebDriver driver;
+    private WebDriverWait wait;
+
+    /**
+     * Setup method to initialize WebDriver before each test case.
+     */
+    @BeforeMethod
+    public void setup() {
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.get("https://www.redbus.in");
+    }
+
+    /**
+     * Tear down method to close the browser after each test case.
+     */
+    @AfterMethod
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
+
+    /**
+     * Test to verify Redbus login with valid credentials.
+     */
+    @Test(description = "Verify Redbus Login with Valid Credentials")
+    public void TC_Redbus_Login_Valid_Credentials() {
+        loginToRedbus("test@gmail.com", "testpassword");
+        validateSuccessfulLogin();
+    }
+
+    /**
+     * Test to verify Redbus login with invalid credentials.
+     */
+    @Test(description = "Verify Redbus Login with Invalid Credentials")
+    public void TC_Redbus_Login_Invalid_Credentials() {
+        loginToRedbus("test@gmail.com", "wrongpassword");
+        validateErrorMessage();
+    }
+
+    /**
+     * Reusable method to perform login action.
+     *
+     * @param username Email ID to login
+     * @param password Password to login
+     */
+    private void loginToRedbus(String username, String password) {
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@id='txtUserName']"))).sendKeys(username);
+        driver.findElement(By.xpath("//input[@id='txtPassword']")).sendKeys(password);
+        driver.findElement(By.xpath("//div[@class='loginBtn']//button")).click();
+    }
+
+    /**
+     * Method to validate successful login by checking the header text.
+     */
+    private void validateSuccessfulLogin() {
+        WebElement header = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@class='loginHeader']")));
+        String expectedHeaderTitle = "Hi";
+        String actualHeaderTitle = header.getText();
+        System.out.println("Expected Header Text: " + expectedHeaderTitle);
+        System.out.println("Actual Header Text: " + actualHeaderTitle);
+
+        if (actualHeaderTitle.contains(expectedHeaderTitle)) {
+            System.out.println("✅ Login Successful - Valid Credentials");
+        } else {
+            System.out.println("❌ Login Failed - Valid Credentials");
+        }
+    }
+
+    /**
+     * Method to validate error message for invalid login.
+     */
+    private void validateErrorMessage() {
+        WebElement errorMsg = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[@id='login-error']")));
+        String expectedErrMsg = "Email or password is incorrect.";
+        String actualErrMsg = errorMsg.getText();
+        System.out.println("Expected Error Message: " + expectedErrMsg);
+        System.out.println("Actual Error Message: " + actualErrMsg);
+
+        if (actualErrMsg.equals(expectedErrMsg)) {
+            System.out.println("✅ Login Failed - Invalid Credentials (Error Message Correct)");
+        } else {
+            System.out.println("❌ Invalid Error Message - Mismatch Detected");
+        }
+    }
+}
+
+TESTNG:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Redbus_Login_Functionality_Suite">
+    <test name="Redbus_Login_Tests">
+        <classes>
+            <class name="com.redbus.testcases.Redbus_Login_Functionality"/>
+        </classes>
+    </test>
+</suite>
+
