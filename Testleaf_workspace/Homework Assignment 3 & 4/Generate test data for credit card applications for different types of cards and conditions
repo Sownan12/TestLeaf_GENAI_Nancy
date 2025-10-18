@@ -1,0 +1,422 @@
+Instructions - 
+        - Generate different test data combinations for different types of cards and conditions
+        - Consider customers from different country zones
+        - [Mandatory] Generate only unique Test data
+        - Generate 5 sets of data only
+        - Generate data more closer to reality
+    Context - 
+        - I am a senior test engineer expert in testing the applications in Banking domain
+    Example - 
+        First Name - Lakshmanan
+        Last Name - Chellappan
+        Card Type - Visa Rewards card
+        Credit Score - Good
+        These are few example of test data, [Donot]  restrict yourself to only these fields, consider only as an example and generate the test data as per different cards and conditions available in the banking industry
+    Persona - 
+        - I am an Automation engineer to generate multiple sets of test data
+    Output format - 
+        - Output only the Test data in a json format
+
+
+Deepseek Output from the ICEPOT framework
+
+[   {
+  "set1": {
+    "customer": {
+      "firstName": "Akhil",
+      "lastName": "Menon",
+      "age": 32,
+      "country": "India",
+      "city": "Bangalore",
+      "email": "akhil.menon@gmail.com",
+      "phoneNumber": "+91-9845012345"
+    },
+    "cardDetails": {
+      "cardType": "Visa Platinum Credit Card",
+      "cardNumber": "4539 6720 1289 3412",
+      "expiryDate": "09/2028",
+      "cvv": "374",
+      "creditLimit": 250000,
+      "currentBalance": 78654.50,
+      "interestRate": "14.5%",
+      "rewardPoints": 1520
+    },
+    "financialDetails": {
+      "annualIncome": 1200000,
+      "creditScore": "Excellent",
+      "employmentType": "Salaried",
+      "currency": "INR"
+    },
+    "conditions": {
+      "isInternationalUsageEnabled": true,
+      "hasLatePaymentHistory": false,
+      "cardStatus": "Active"
+    }
+  },
+
+  "set2": {
+    "customer": {
+      "firstName": "Olivia",
+      "lastName": "Hughes",
+      "age": 41,
+      "country": "United Kingdom",
+      "city": "Manchester",
+      "email": "olivia.hughes@outlook.com",
+      "phoneNumber": "+44-7700123456"
+    },
+    "cardDetails": {
+      "cardType": "MasterCard World Elite",
+      "cardNumber": "5453 9876 2210 0043",
+      "expiryDate": "03/2029",
+      "cvv": "112",
+      "creditLimit": 8000,
+      "currentBalance": 2050.35,
+      "interestRate": "19.9%",
+      "rewardPoints": 420
+    },
+    "financialDetails": {
+      "annualIncome": 58000,
+      "creditScore": "Good",
+      "employmentType": "Self-Employed",
+      "currency": "GBP"
+    },
+    "conditions": {
+      "isInternationalUsageEnabled": true,
+      "hasLatePaymentHistory": true,
+      "cardStatus": "Active"
+    }
+  },
+
+  "set3": {
+    "customer": {
+      "firstName": "Lucas",
+      "lastName": "Miller",
+      "age": 27,
+      "country": "United States",
+      "city": "Chicago",
+      "email": "lucas.miller@example.com",
+      "phoneNumber": "+1-312-890-4567"
+    },
+    "cardDetails": {
+      "cardType": "American Express Gold Card",
+      "cardNumber": "3782 822463 10005",
+      "expiryDate": "11/2027",
+      "cvv": "1294",
+      "creditLimit": 15000,
+      "currentBalance": 9800.10,
+      "interestRate": "16.9%",
+      "rewardPoints": 3050
+    },
+    "financialDetails": {
+      "annualIncome": 92000,
+      "creditScore": "Excellent",
+      "employmentType": "IT Consultant",
+      "currency": "USD"
+    },
+    "conditions": {
+      "isInternationalUsageEnabled": true,
+      "hasLatePaymentHistory": false,
+      "cardStatus": "Active"
+    }
+  },
+
+  "set4": {
+    "customer": {
+      "firstName": "Sofia",
+      "lastName": "Rodriguez",
+      "age": 36,
+      "country": "Spain",
+      "city": "Barcelona",
+      "email": "sofia.rod@gmail.com",
+      "phoneNumber": "+34-678-555-892"
+    },
+    "cardDetails": {
+      "cardType": "Visa Corporate Travel Card",
+      "cardNumber": "4556 7320 9987 2213",
+      "expiryDate": "02/2030",
+      "cvv": "568",
+      "creditLimit": 12000,
+      "currentBalance": 4567.25,
+      "interestRate": "13.2%",
+      "rewardPoints": 680
+    },
+    "financialDetails": {
+      "annualIncome": 65000,
+      "creditScore": "Fair",
+      "employmentType": "Corporate Employee",
+      "currency": "EUR"
+    },
+    "conditions": {
+      "isInternationalUsageEnabled": true,
+      "hasLatePaymentHistory": false,
+      "cardStatus": "Active"
+    }
+  },
+
+  "set5": {
+    "customer": {
+      "firstName": "Kenji",
+      "lastName": "Tanaka",
+      "age": 45,
+      "country": "Japan",
+      "city": "Tokyo",
+      "email": "kenji.tanaka@jpmail.jp",
+      "phoneNumber": "+81-90-9876-5432"
+    },
+    "cardDetails": {
+      "cardType": "JCB Premium Card",
+      "cardNumber": "3540 1234 8765 2309",
+      "expiryDate": "07/2029",
+      "cvv": "701",
+      "creditLimit": 2000000,
+      "currentBalance": 134000.75,
+      "interestRate": "12.5%",
+      "rewardPoints": 4800
+    },
+    "financialDetails": {
+      "annualIncome": 9500000,
+      "creditScore": "Good",
+      "employmentType": "Business Owner",
+      "currency": "JPY"
+    },
+    "conditions": {
+      "isInternationalUsageEnabled": false,
+      "hasLatePaymentHistory": true,
+      "cardStatus": "Suspended"
+    }
+  }
+}
+
+
+
+Postman Request:
+
+{
+    "messages": [
+        {
+        "role": "user",
+        "content": " Generate different test data combinations in JSON for different types of cards and conditions. Consider customers from different country zones. Mandatory to Generate only unique Test data. Generate 5 sets of data only. Generate data more closer to reality. For example First Name – Lakshmanan,Last Name – Chellappan,Card Type - Visa Rewards card,Credit Score – Good. These are few example of test data, Donot restrict yourself to only these fields"
+        },
+        {
+        "role": "system",
+        "content": "I am an Automation engineer to generate multiple sets of test data"
+        },
+        {
+        "role": "assistant",
+        "content": "provide the response in JSON"
+        }
+    ],
+    "model": "llama-3.1-8b-instant"
+    }
+
+
+Output from Postman:
+
+{
+    "id": "chatcmpl-c1f3613e-6d45-4973-88f6-3bec5420c7ff",
+    "object": "chat.completion",
+    "created": 1760768868,
+    "model": "llama-3.1-8b-instant",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": " format that includes 5 sets of test data combination. It also ensures that test data is realistic.\n\n```json\n{\n  \"set1\": {\n    \"customer\": {\n      \"firstName\": \"Akhil\",\n      \"lastName\": \"Mohan\",\n      \"address\": \"123, Main St, New York, NY 10001, USA\",\n      \"country\": \"USA\",\n      \"zipCode\": \"10001\",\n      \"phone\": \"123-456-7890\",\n      \"email\": \"akhil.mohan@usa.com\"\n    },\n    \"card\": {\n      \"type\": \"Visa Rewards\",\n      \"cardNumber\": \"4111111111111111\",\n      \"expirationDate\": \"02/2026\",\n      \"cvv\": \"123\"\n    },\n    \"creditScore\": {\n      \"score\": 750,\n      \"type\": \"good\"\n    },\n    \"loanHistory\": [\n      {\n        \"startDate\": \"2015-01-01\",\n        \"endDate\": \"2016-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      },\n      {\n        \"startDate\": \"2018-01-01\",\n        \"endDate\": \"2020-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      }\n    ]\n  },\n  \"set2\": {\n    \"customer\": {\n      \"firstName\": \"Lakshmanan\",\n      \"lastName\": \"Chellappan\",\n      \"address\": \"12, Rajaji St, Chennai, TN 600014, India\",\n      \"country\": \"India\",\n      \"zipCode\": \"600014\",\n      \"phone\": \"9876543210\",\n      \"email\": \"lakshmanan.chellappan@india.com\"\n    },\n    \"card\": {\n      \"type\": \"Mastercard Cashback\",\n      \"cardNumber\": \"5105105105105100\",\n      \"expirationDate\": \"03/2027\",\n      \"cvv\": \"245\"\n    },\n    \"creditScore\": {\n      \"score\": 720,\n      \"type\": \"good\"\n    },\n    \"loanHistory\": [\n      {\n        \"startDate\": \"2012-01-01\",\n        \"endDate\": \"2013-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      },\n      {\n        \"startDate\": \"2019-01-01\",\n        \"endDate\": \"2020-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      }\n    ]\n  },\n  \"set3\": {\n    \"customer\": {\n      \"firstName\": \"Sofia\",\n      \"lastName\": \"Rodriguez\",\n      \"address\": \"1234, Calle Avenida Argentina, Buenos Aires, B1686ABD, Argentina\",\n      \"country\": \"Argentina\",\n      \"zipCode\": \"B1686ABD\",\n      \"phone\": \"123456789\",\n      \"email\": \"sofia.rodriguez@argentina.com\"\n    },\n    \"card\": {\n      \"type\": \"American Express Platinum\",\n      \"cardNumber\": \"371449635398431\",\n      \"expirationDate\": \"04/2027\",\n      \"cvv\": \"987\"\n    },\n    \"creditScore\": {\n      \"score\": 850,\n      \"type\": \"excellent\"\n    },\n    \"loanHistory\": [\n      {\n        \"startDate\": \"2016-01-01\",\n        \"endDate\": \"2017-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      },\n      {\n        \"startDate\": \"2021-01-01\",\n        \"endDate\": \"2022-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      }\n    ]\n  },\n  \"set4\": {\n    \"customer\": {\n      \"firstName\": \"Yuna\",\n      \"lastName\": \"Lee\",\n      \"address\": \"12-34, 567-gh St, Seoul, 05554, South Korea\",\n      \"country\": \"South Korea\",\n      \"zipCode\": \"05554\",\n      \"phone\": \"010-1234-5678\",\n      \"email\": \"yuna.lee@korea.com\"\n    },\n    \"card\": {\n      \"type\": \"JCB Gold\",\n      \"cardNumber\": \"3530111333300000\",\n      \"expirationDate\": \"05/2027\",\n      \"cvv\": \"321\"\n    },\n    \"creditScore\": {\n      \"score\": 620,\n      \"type\": \"fair\"\n    },\n    \"loanHistory\": [\n      {\n        \"startDate\": \"2018-01-01\",\n        \"endDate\": \"2019-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      },\n      {\n        \"startDate\": \"2020-01-01\",\n        \"endDate\": \"2021-01-01\",\n        \"repaymentStatus\": \"late\"\n      }\n    ]\n  },\n  \"set5\": {\n    \"customer\": {\n      \"firstName\": \"Aisha\",\n      \"lastName\": \"Mohammed\",\n      \"address\": \"456, Makkah St, Jeddah, 23522, Saudi Arabia\",\n      \"country\": \"Saudi Arabia\",\n      \"zipCode\": \"23522\",\n      \"phone\": \"0567-890-1234\",\n      \"email\": \"aisha.mohammed@saudiarabia.com\"\n    },\n    \"card\": {\n      \"type\": \"Diners Club Platinum\",\n      \"cardNumber\": \"30569309025904\",\n      \"expirationDate\": \"06/2027\",\n      \"cvv\": \"654\"\n    },\n    \"creditScore\": {\n      \"score\": 690,\n      \"type\": \"good\"\n    },\n    \"loanHistory\": [\n      {\n        \"startDate\": \"2017-01-01\",\n        \"endDate\": \"2018-01-01\",\n        \"repaymentStatus\": \"onTime\"\n      },\n      {\n        \"startDate\": \"2022-01-01\",\n        \"endDate\": \"2023-01-01\",\n        \"repaymentStatus\": \"late\"\n      }\n    ]\n  }\n}\n```\n\nGenerated this data using Python."
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "queue_time": 0.057243515,
+        "prompt_tokens": 143,
+        "prompt_time": 0.01006753,
+        "completion_tokens": 1298,
+        "completion_time": 1.7839635619999998,
+        "total_tokens": 1441,
+        "total_time": 1.794031092
+    },
+    "usage_breakdown": null,
+    "system_fingerprint": "fp_7b3cfae3af",
+    "x_groq": {
+        "id": "req_01k7v01eemeb9943cb7bkgwxsq"
+    },
+    "service_tier": "on_demand"
+}
+
+Beautified the response Content:
+"set1": {
+    "customer": {
+      "firstName": "Akhil",
+      "lastName": "Mohan",
+      "address": "123, Main St, New York, NY 10001, USA",
+      "country": "USA",
+      "zipCode": "10001",
+      "phone": "123-456-7890",
+      "email": "akhil.mohan@usa.com"
+    },
+    "card": {
+      "type": "Visa Rewards",
+      "cardNumber": "4111111111111111",
+      "expirationDate": "02/2026",
+      "cvv": "123"
+    },
+    "creditScore": {
+      "score": 750,
+      "type": "good"
+    },
+    "loanHistory": [
+      {
+        "startDate": "2015-01-01",
+        "endDate": "2016-01-01",
+        "repaymentStatus": "onTime"
+      },
+      {
+        "startDate": "2018-01-01",
+        "endDate": "2020-01-01",
+        "repaymentStatus": "onTime"
+      }
+    ]
+  },
+  "set2": {
+    "customer": {
+      "firstName": "Lakshmanan",
+      "lastName": "Chellappan",
+      "address": "12, Rajaji St, Chennai, TN 600014, India",
+      "country": "India",
+      "zipCode": "600014",
+      "phone": "9876543210",
+      "email": "lakshmanan.chellappan@india.com"
+    },
+    "card": {
+      "type": "Mastercard Cashback",
+      "cardNumber": "5105105105105100",
+      "expirationDate": "03/2027",
+      "cvv": "245"
+    },
+    "creditScore": {
+      "score": 720,
+      "type": "good"
+    },
+    "loanHistory": [
+      {
+        "startDate": "2012-01-01",
+        "endDate": "2013-01-01",
+        "repaymentStatus": "onTime"
+      },
+      {
+        "startDate": "2019-01-01",
+        "endDate": "2020-01-01",
+        "repaymentStatus": "onTime"
+      }
+    ]
+  },
+  "set3": {
+    "customer": {
+      "firstName": "Sofia",
+      "lastName": "Rodriguez",
+      "address": "1234, Calle Avenida Argentina, Buenos Aires, B1686ABD, Argentina",
+      "country": "Argentina",
+      "zipCode": "B1686ABD",
+      "phone": "123456789",
+      "email": "sofia.rodriguez@argentina.com"
+    },
+    "card": {
+      "type": "American Express Platinum",
+      "cardNumber": "371449635398431",
+      "expirationDate": "04/2027",
+      "cvv": "987"
+    },
+    "creditScore": {
+      "score": 850,
+      "type": "excellent"
+    },
+    "loanHistory": [
+      {
+        "startDate": "2016-01-01",
+        "endDate": "2017-01-01",
+        "repaymentStatus": "onTime"
+      },
+      {
+        "startDate": "2021-01-01",
+        "endDate": "2022-01-01",
+        "repaymentStatus": "onTime"
+      }
+    ]
+  },
+  "set4": {
+    "customer": {
+      "firstName": "Yuna",
+      "lastName": "Lee",
+      "address": "12-34, 567-gh St, Seoul, 05554, South Korea",
+      "country": "South Korea",
+      "zipCode": "05554",
+      "phone": "010-1234-5678",
+      "email": "yuna.lee@korea.com"
+    },
+    "card": {
+      "type": "JCB Gold",
+      "cardNumber": "3530111333300000",
+      "expirationDate": "05/2027",
+      "cvv": "321"
+    },
+    "creditScore": {
+      "score": 620,
+      "type": "fair"
+    },
+    "loanHistory": [
+      {
+        "startDate": "2018-01-01",
+        "endDate": "2019-01-01",
+        "repaymentStatus": "onTime"
+      },
+      {
+        "startDate": "2020-01-01",
+        "endDate": "2021-01-01",
+        "repaymentStatus": "late"
+      }
+    ]
+  },
+  "set5": {
+    "customer": {
+      "firstName": "Aisha",
+      "lastName": "Mohammed",
+      "address": "456, Makkah St, Jeddah, 23522, Saudi Arabia",
+      "country": "Saudi Arabia",
+      "zipCode": "23522",
+      "phone": "0567-890-1234",
+      "email": "aisha.mohammed@saudiarabia.com"
+    },
+    "card": {
+      "type": "Diners Club Platinum",
+      "cardNumber": "30569309025904",
+      "expirationDate": "06/2027",
+      "cvv": "654"
+    },
+    "creditScore": {
+      "score": 690,
+      "type": "good"
+    },
+    "loanHistory": [
+      {
+        "startDate": "2017-01-01",
+        "endDate": "2018-01-01",
+        "repaymentStatus": "onTime"
+      },
+      {
+        "startDate": "2022-01-01",
+        "endDate": "2023-01-01",
+        "repaymentStatus": "late"
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
